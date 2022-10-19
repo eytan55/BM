@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import style from './Form.module.css';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Radio from '@mui/material/Radio';
@@ -12,8 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
     typography: {
-
-        button: { // Here is where you can customise the button
+        button: { 
           fontSize: 16,
           fontWeight: 600,
         },
@@ -31,33 +29,19 @@ const theme = createTheme({
   },
 });
 
-
-// import bmLogo from '../assets/icons/hat.png';
-// import { slide as Menu } from 'react-burger-menu';
-// import Navbar from './Navbar';
-// import ImageBackground from './ImageBackground';
-
 const Form = props => {
 
     const form = useRef();
 
     const onSubmit = (e) => {
         e.preventDefault(); 
-        const email = 'eytantaieb@gmail.com';
+        const email = 'Bmshai0511@gmail.com';
         const subject = 'Bar Mitsva Shai Présence';
         let body = '';
         body += 'Nom: ' + e.target.prenom.value + ' ' + e.target.nom.value + '    ';
         body += 'Assistera: ' + e.target.assistera.value + '    ';
         body += 'Nombre de personnes: ' + e.target.nbrPersonne.value + '    ';
-        console.log({body});
         window.location = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
-        
-        // emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-        //   .then((result) => {
-        //       // show the user a success message
-        //   }, (error) => {
-        //       // show the user an error
-        //   });
       };
 
     return <div className={style.container}>
@@ -71,7 +55,6 @@ const Form = props => {
         <ThemeProvider theme={theme}>
         <TextField id="outlined-basic" name="nom" label="Nom" color='noir' variant="outlined" focused  />
     </ThemeProvider>
-        {/* <TextField id="outlined-basic" label="Nom" color='doree' variant="outlined" /> */}
         </div>
         <div className={style.containerInput}>
         <ThemeProvider theme={theme}>
@@ -103,7 +86,6 @@ const Form = props => {
         <div className={style.containerInputBottom}>
         <ThemeProvider theme={theme}>
         <Button type="submit" variant="contained" color='doree'>Envoyer</Button>
-        {/* <a href="mailto:`{email}`?subject={subject}&body={body}">Click to Send an Email</a> */}
         </ThemeProvider>
         </div></form></article>
       </div>

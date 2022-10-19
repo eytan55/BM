@@ -1,9 +1,5 @@
 import React from 'react';
 import style from './Paragraph2.module.css';
-// import bmLogo from '../assets/icons/hat.png';
-// import { slide as Menu } from 'react-burger-menu';
-// import Navbar from './Navbar';
-// import ImageBackground from './ImageBackground';
 
 const Paragraph2 = props => {
 
@@ -19,12 +15,6 @@ const Paragraph2 = props => {
       <p className={style.texteStyle}>47 rue de Malleville,</p> 
       <p className={style.texteStyle}>95880, Enghien-les-Bains</p>
     </article>
-        {/* <div className={style.imgBackgroundContainer}>
-        <img className={style.imgBackground} src="https://static.wixstatic.com/media/4240b2_97c78daf154c4d73a68bee0d0531eb53~mv2.jpeg/v1/fill/w_233,h_700,al_c,q_80,enc_auto/4240b2_97c78daf154c4d73a68bee0d0531eb53~mv2.jpeg" alt="e5abe2a191683fcb3369fdf2dde90c19.jpeg"></img>
-            <div className={style.textcontainer}>
-                <p>Shaï et sa famille vous prie de bien vouloir l'honorer de votre présence pour célébrer sa Bar Mitsva </p>
-                </div>
-        </div> */}
       </div>;
  }
 

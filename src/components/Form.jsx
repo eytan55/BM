@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import style from './Form.module.css';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -39,21 +39,43 @@ const theme = createTheme({
 
 const Form = props => {
 
+    const form = useRef();
+
+    const onSubmit = (e) => {
+        e.preventDefault(); 
+        const email = 'eytantaieb@gmail.com';
+        const subject = 'Bar Mitsva Shai Présence';
+        let body = '';
+        body += 'Nom: ' + e.target.prenom.value + ' ' + e.target.nom.value + '    ';
+        body += 'Assistera: ' + e.target.assistera.value + '    ';
+        body += 'Nombre de personnes: ' + e.target.nbrPersonne.value + '    ';
+        console.log({body});
+        window.location = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
+        
+        // emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+        //   .then((result) => {
+        //       // show the user a success message
+        //   }, (error) => {
+        //       // show the user an error
+        //   });
+      };
+
     return <div className={style.container}>
              <article
       className={style.article}
       style={{ backgroundImage: `url(${'https://static.wixstatic.com/media/4240b2_97c78daf154c4d73a68bee0d0531eb53~mv2.jpeg/v1/fill/w_233,h_700,al_c,q_80,enc_auto/4240b2_97c78daf154c4d73a68bee0d0531eb53~mv2.jpeg'})` }}
     >
+        <form ref={form} onSubmit={onSubmit}>
         <h1 className={style.header}>Votre réponse</h1>
         <div className={style.containerInputTop}>
         <ThemeProvider theme={theme}>
-        <TextField id="outlined-basic" label="Nom" color='noir' variant="outlined" focused  />
+        <TextField id="outlined-basic" name="nom" label="Nom" color='noir' variant="outlined" focused  />
     </ThemeProvider>
         {/* <TextField id="outlined-basic" label="Nom" color='doree' variant="outlined" /> */}
         </div>
         <div className={style.containerInput}>
         <ThemeProvider theme={theme}>
-        <TextField id="outlined-basic" label="Prénom" color='noir' variant="outlined" focused />
+        <TextField id="outlined-basic" name="prenom" label="Prénom" color='noir' variant="outlined" focused />
         </ThemeProvider>
         </div>
         <div className={style.containerInput}>
@@ -67,22 +89,23 @@ const Form = props => {
         name="radio-buttons-group"
       >
         <ThemeProvider theme={theme}>
-        <FormControlLabel value="oui" control={<Radio color='noir' />} label="Oui" />
-        <FormControlLabel value="non" control={<Radio color='noir' />} label="Non" />
+        <FormControlLabel value="oui" name='assistera' control={<Radio color='noir' />} label="Oui" />
+        <FormControlLabel value="non" name='assistera' control={<Radio color='noir' />} label="Non" />
         </ThemeProvider>
       </RadioGroup>
     </FormControl>
     </div>
     <div className={style.containerInput}>
     <ThemeProvider theme={theme}>
-        <TextField id="outlined-basic" label="Combien de personnes?" color='noir' variant="outlined" focused  />
+        <TextField id="outlined-basic" name="nbrPersonne" label="Combien de personnes?" color='noir' variant="outlined" focused  />
         </ThemeProvider>
         </div>
         <div className={style.containerInputBottom}>
         <ThemeProvider theme={theme}>
-        <Button variant="contained" color='doree'>Envoyer</Button>
+        <Button type="submit" variant="contained" color='doree'>Envoyer</Button>
+        {/* <a href="mailto:`{email}`?subject={subject}&body={body}">Click to Send an Email</a> */}
         </ThemeProvider>
-        </div></article>
+        </div></form></article>
       </div>
       ;
  }

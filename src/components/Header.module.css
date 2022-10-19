@@ -1,7 +1,7 @@
 .container {
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-between; */
 }
 
 .logoContainer {
@@ -10,12 +10,19 @@
 }
 
 .burgerMenuContainer {
-    margin-right: 25px;
+    /* margin-right: 25px; */
     margin-top: 10px;
 }
 
 .logoImg {
     height: 50px;
     width: 50px;
+}
+
+.texteStyle {
+    font-size: 25px;
+    color: #E7CA76;
+    text-align: center;
+    font-family: didot-italic;
 }
   

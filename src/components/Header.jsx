@@ -8,12 +8,13 @@ import Navbar from './Navbar';
 const Header = props => {
 
     return <div className={style.container}>
-            <div className={style.logoContainer}>
+            {/* <div className={style.logoContainer}>
                 <img src={bmLogo} className={style.logoImg} alt="BMlogo"/>
-            </div>
+            </div> */}
             <div className={style.burgerMenuContainer}>
+                <p className={style.texteStyle}>BM Shai Meir Marciano</p>
                 {/* aaaa */}
-                <Navbar />
+                {/* <Navbar /> */}
                 {/* <ImageBackground /> */}
             </div>
       </div>;

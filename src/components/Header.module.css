@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logoContainer {
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+.burgerMenuContainer {
+    margin-right: 25px;
+    margin-top: 10px;
+}
+
+.logoImg {
+    height: 50px;
+    width: 50px;
+}
+  
